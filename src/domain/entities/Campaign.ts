@@ -1,7 +1,3 @@
-export const getStatus = (statusOn: boolean): string => {
-  return statusOn ? "on" : "off";
-};
-
 export interface Campaign {
   id: string;
   name: string; // Mandatory
