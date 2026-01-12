@@ -36,34 +36,34 @@ export default campaignsStore;
  */
 const emeraldAccountDefaultBalance = 10_000;
 
-// /**
-//  * Mutable storage for the account balance.
-//  * Allows the balance to be updated across the application.
-//  */
-// export const accountStore = {
-//   balance: emeraldAccountDefaultBalance,
-// };
+/**
+ * Mutable storage for the account balance.
+ * Allows the balance to be updated across the application.
+ */
+export const accountStore = {
+  balance: emeraldAccountDefaultBalance,
+};
 
-// /**
-//  * A Set used for efficient, case-insensitive keyword lookups.
-//  * Ensures uniqueness of keywords in the availableKeywords list.
-//  */
-// export const keywordLookup = new Set<string>();
+/**
+ * A Set used for efficient, case-insensitive keyword lookups.
+ * Ensures uniqueness of keywords in the availableKeywords list.
+ */
+export const keywordLookup = new Set<string>();
 
-// /**
-//  * List of available keywords for campaigns.
-//  * Initialized from a static list and sanitized/deduplicated.
-//  * Populates keywordLookup during initialization.
-//  */
-// export const availableKeywords = initialKeywords
-//   .map(sanitizeKeyword)
-//   .filter(Boolean)
-//   .filter((keyword) => {
-//     const lowered = keyword.toLowerCase();
-//     if (keywordLookup.has(lowered)) {
-//       return false;
-//     }
+/**
+ * List of available keywords for campaigns.
+ * Initialized from a static list and sanitized/deduplicated.
+ * Populates keywordLookup during initialization.
+ */
+export const availableKeywords = initialKeywords
+  .map(sanitizeKeyword)
+  .filter(Boolean)
+  .filter((keyword) => {
+    const lowered = keyword.toLowerCase();
+    if (keywordLookup.has(lowered)) {
+      return false;
+    }
 
-//     keywordLookup.add(lowered);
-//     return true;
-//   });
+    keywordLookup.add(lowered);
+    return true;
+  });
