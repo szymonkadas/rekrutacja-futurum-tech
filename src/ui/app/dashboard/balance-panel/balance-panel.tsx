@@ -1,6 +1,7 @@
 import { useAccountBalanceQuery } from "/src/application/hooks/account-balance/useAccountBalance";
 import { useCampaignsQuery } from "/src/application/hooks/campaigns/useCampaigns";
 import styles from "./balance-panel.module.css";
+import formatCurrency from "/src/application/utils/format-currency";
 
 /**
  * BalancePanel component displaying the Emerald account balance.
@@ -58,10 +59,5 @@ const BalancePanel = () => {
     </div>
   );
 };
-
-const formatCurrency = (value: number) =>
-  new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(
-    value,
-  );
 
 export default BalancePanel;
