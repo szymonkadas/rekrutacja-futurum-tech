@@ -38,6 +38,7 @@ const EditCampaignPage = ({
     isError,
     error,
   } = useCampaignQuery(campaignId);
+
   const resolvedDraft =
     initialDraft ??
     (locationState?.campaignId === campaignId

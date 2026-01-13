@@ -14,7 +14,7 @@ export const CAMPAIGN_QUERY_KEY = (id?: string) => [
  * it will return the first campaign from the list.
  */
 export const useCampaignQuery = (id?: string) =>
-  useQuery<Campaign | undefined, Error>({
+  useQuery<Campaign | null | undefined, Error>({
     queryKey: CAMPAIGN_QUERY_KEY(id),
     queryFn: async () => {
       if (id) {
@@ -22,6 +22,9 @@ export const useCampaignQuery = (id?: string) =>
       }
 
       const all = await ensureQuerySuccess(campaignService.getAll());
+      if(all.length === 0) {
+        return null;
+      }
       return all?.[0];
     },
   });
