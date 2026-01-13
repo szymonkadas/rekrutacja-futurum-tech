@@ -51,7 +51,7 @@ const BalancePanel = () => {
           typeof balance !== "number" &&
           "--"}
       </p>
-      <p className={styles.balancePanel__label}>Max campaign funds</p>
+      <p className={styles.balancePanel__label}>Already invested funds</p>
       <p className={styles.balancePanel__value}>
         {typeof maxFunds === "number" ? formatCurrency(maxFunds) : "--"}
       </p>
