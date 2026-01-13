@@ -1,0 +1,108 @@
+@import "/src/styles/utils/toggle-group.css";
+
+.campaignPage {
+  background: var(--color-bg-panel);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+  padding: var(--padding-panel-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-9);
+}
+
+.campaignPage__header {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-7);
+}
+.campaignPage__header div h2, .campaignPage__header div p {
+  margin-bottom: 0;
+}
+.campaignPage__header div p{
+  margin-top: 0;
+}
+
+
+.campaignPage__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.tabNav {
+  composes: toggleGroupContainer;
+  width: fit-content;
+  height: fit-content;
+  margin-left: auto;
+}
+
+.tabNav__item {
+  composes: toggleGroupOption;
+  text-decoration: none;
+}
+
+.tabNav__item_active {
+  composes: toggleGroupOption_active;
+}
+
+@media (max-width: 80rem) {
+  .campaignPage__header h1,
+  .campaignPage__header h2,
+  .campaignPage__header p {
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-2);
+  }
+
+  .campaignPage__header h1:first-child,
+  .campaignPage__header h2:first-child,
+  .campaignPage__header p:first-child {
+    margin-top: 0;
+  }
+}
+
+/* Tablet: reduce spacing and border-radius */
+@media (max-width: 48rem) {
+  .campaignPage {
+    padding: var(--space-9);
+    gap: var(--space-7);
+    border-radius: var(--radius-md);
+  }
+
+  .campaignPage__header {
+    gap: var(--space-5);
+    flex-direction: column-reverse;
+    position: relative;
+  }
+
+  .campaignPage__content {
+    gap: var(--space-5);
+  }
+
+  .tabNav {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+/* Mobile: further reduce spacing and border-radius */
+@media (max-width: 31rem) {
+  .campaignPage {
+    padding: var(--space-7);
+    gap: var(--space-5);
+    border-radius: var(--radius-sm);
+  }
+
+  .campaignPage__header {
+    gap: var(--space-4);
+  }
+
+  .campaignPage__content {
+    gap: var(--space-4);
+  }
+
+  .tabNav {
+    right: calc(-1 * var(--space-4));
+    top: calc(-1 * var(--space-4));
+  }
+}
