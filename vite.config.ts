@@ -3,8 +3,8 @@ import react from '@vitejs/plugin-react'
 import path from 'node:path'
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: '/rekrutacja-futurum-tech/',
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' && process.env.GITHUB_PAGES ? '/rekrutacja-futurum-tech/' : '/',
   resolve: {
     alias: {
       '/src': path.resolve(__dirname, 'src'),
@@ -17,4 +17,4 @@ export default defineConfig({
       },
     }),
   ],
-})
+}))
