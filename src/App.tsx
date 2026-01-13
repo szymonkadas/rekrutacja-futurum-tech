@@ -10,13 +10,13 @@ import {
 import "/src/App.css";
 // import CreateCampaignPage from "/src/ui/app/campaign-view/create/create-campaign.page";
 // import EditCampaignPage from "/src/ui/app/campaign-view/edit/EditCampaign.page";
-// import Dashboard from "./ui/app/dashboard/dashboard.page";
+import Dashboard from "./ui/app/dashboard/dashboard.page";
 
 const App = () => {
   return (
     <HashRouter>
       <Routes>
-        {/* <Route path="/" element={<Dashboard/>} /> */}
+        <Route path="/" element={<Dashboard/>} />
         <Route
           path="/create"
           element={
