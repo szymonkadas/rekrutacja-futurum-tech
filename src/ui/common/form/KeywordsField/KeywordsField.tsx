@@ -1,6 +1,6 @@
-import { type KeyboardEvent, useMemo, useState } from "react";
+import { type KeyboardEvent, useId, useMemo, useState } from "react";
 
-import styles from "/src/ui/common/form/keywordsField.module.css";
+import styles from "/src/ui/common/form/KeywordsField/keywordsField.module.css";
 import FormField from "/src/ui/common/form/FormField/FormField";
 
 type KeywordsFieldProps = {
@@ -25,8 +25,9 @@ const KeywordsField = ({
   disabled,
   isLoading,
 }: KeywordsFieldProps) => {
+  const inputId = useId()
   return (
-    <FormField label={label} error={error} hint={hint} className={styles.field}>
+    <FormField label={label} error={error} hint={hint} className={styles.field} htmlFor={inputId}>
       <KeywordMultiSelect
         value={value}
         suggestions={suggestions}
@@ -59,6 +60,7 @@ type KeywordMultiSelectProps = {
   isLoading?: boolean;
   className?: string;
   hasError?: boolean;
+  inputId?: string;
   onChange: (keywords: string[]) => void;
 };
 
@@ -71,6 +73,7 @@ const KeywordMultiSelect = ({
   onChange,
   className,
   hasError,
+  inputId,
 }: KeywordMultiSelectProps) => {
   const [inputValue, setInputValue] = useState("");
 
@@ -194,7 +197,15 @@ const KeywordMultiSelect = ({
       <div className={styles.wrapper}>
         <div className={styles.chips} aria-live="polite">
           {value.map((keyword) => (
-            <span key={keyword} className={styles.chip}>
+            <span
+              key={keyword}
+              className={styles.chip}
+              onClick={(e) => {
+                if (e.target === e.currentTarget) {
+                  e.currentTarget.querySelector<HTMLButtonElement>("button")?.click();
+                }
+              }}
+            >
               {keyword}
               <button
                 type="button"
@@ -214,6 +225,7 @@ const KeywordMultiSelect = ({
               </span>
             )}
             <input
+              id={inputId}
               className={styles.input}
               placeholder={placeholder}
               value={inputValue}

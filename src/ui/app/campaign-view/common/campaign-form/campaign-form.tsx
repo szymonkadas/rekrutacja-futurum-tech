@@ -17,7 +17,7 @@ import styles from "./campaignForm.module.css";
 import SelectField from "/src/ui/common/form/SelectField/SelectField";
 import StatusToggleField from "/src/ui/common/form/StatusToggle/StatusToggle";
 import InputField from "/src/ui/common/form/InputField/InputField";
-import KeywordsField from "/src/ui/common/form/KeywordsField";
+import KeywordsField from "/src/ui/common/form/KeywordsField/KeywordsField";
 
 // TODO: allow user to fetch towns from DB & add their own towns
 const TOWN_OPTIONS = [

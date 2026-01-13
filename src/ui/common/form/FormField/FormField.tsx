@@ -8,6 +8,7 @@ type FormFieldProps = {
   error?: string;
   hint?: string;
   className?: string;
+  htmlFor?: string;
 };
 
 const FormField = ({
@@ -16,13 +17,14 @@ const FormField = ({
   error,
   hint,
   className,
+  htmlFor,
 }: FormFieldProps) => {
   const labelClassName = className
     ? `${styles.field} ${className}`
     : styles.field;
 
   return (
-    <label className={labelClassName}>
+    <label className={labelClassName} htmlFor={htmlFor}>
       <span className={styles.labelText}>{label}</span>
       {children}
       {error && <p className={styles.error}>{error}</p>}
