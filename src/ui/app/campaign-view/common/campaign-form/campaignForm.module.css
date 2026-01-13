@@ -1,0 +1,109 @@
+.campaignForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+}
+
+.intro h3, .intro p{
+  margin: 0;
+}
+
+.intro h3{
+  margin-top: var(--space-4) !important;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-7);
+  /* Ensure predictable placement so we can reorder visually */
+  align-items: start;
+}
+
+.primaryButton {
+  align-self: flex-start;
+  border-radius: var(--radius-full);
+  border: none;
+  padding: var(--padding-button-lg);
+  background: var(--color-primary-gradient);
+  color: var(--color-text-dark);
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-button);
+  margin-left: auto;
+}
+
+.primaryButton:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+@media (max-width: 96rem) {
+  /* For some reason one grid column doesn't work */
+  .formGrid {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* When .formGrid is displayed as flex (mobile) make the second child appear first + change it's styles - otherwise it would look weird */
+@media (max-width: 96rem) {
+  .formGrid > *:nth-child(1) {
+    order: 2;
+    width: 100%;
+  }
+
+  .formGrid > *:nth-child(2) {
+    order: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .formGrid > *:nth-child(n+3) {
+    order: 2;
+    width: 100%;
+  }
+}
+
+/* Tablet: reduce spacing and border-radius */
+@media (max-width: 48rem) {
+  .campaignForm {
+    gap: var(--space-5);
+  }
+
+  .formGrid {
+    gap: var(--space-5);
+  }
+
+  .primaryButton {
+    margin-top: var(--space-4);
+    border-radius: var(--radius-sm);
+    width: 100%;
+  }
+}
+
+/* Mobile: further reduce spacing and border-radius */
+@media (max-width: 31rem) {
+  .campaignForm {
+    gap: var(--space-4);
+  }
+
+  .formGrid {
+    gap: var(--space-4);
+  }
+
+  .primaryButton {
+    border-radius: var(--radius-sm);
+    padding: 0.6rem 1.25rem;
+    font-size: var(--font-size-base);
+  }
+}

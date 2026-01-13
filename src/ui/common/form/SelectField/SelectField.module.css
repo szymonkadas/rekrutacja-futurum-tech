@@ -1,0 +1,7 @@
+.control {
+  composes: controlBase from "../styles/formShared.module.css";
+}
+
+.controlError {
+  composes: controlError from "../styles/formShared.module.css";
+}

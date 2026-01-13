@@ -1,0 +1,232 @@
+@import "/src/styles/utils/toggle-group.css";
+
+.appShell {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: var(--space-12);
+  padding: var(--padding-page);
+  min-height: 100dvh;
+}
+
+.stack {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+  padding: var(--padding-card);
+  box-shadow: var(--shadow-card);
+}
+
+.stack header {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-8);
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.workspaceHeader__textContent{
+  display: flex;
+  flex-direction: column;
+  max-width: 560px;
+}
+
+.workspaceHeader__textContent h1{
+  margin-bottom: 0;
+}
+
+.workspaceLinks {
+  display: flex;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.workspaceMeta {
+  margin-top: var(--space-7);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-7);
+  align-items: center;
+}
+
+.ghostLink {
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-medium);
+  padding: var(--padding-button-sm);
+  font-size: var(--font-size-md);
+  text-decoration: none;
+  color: var(--color-text-ghost);
+  transition:
+    border-color 150ms ease,
+    color 150ms ease;
+}
+
+.ghostLink:hover {
+  border-color: var(--color-border-hover);
+  color: var(--color-text-ghost-hover);
+}
+
+.modeSwitch {
+  composes: toggleGroupContainer;
+}
+
+.modeSwitchButton {
+  composes: toggleGroupOption;
+  border: none;
+  cursor: pointer;
+}
+
+.modeSwitchButton:hover {
+  color: var(--color-text);
+}
+
+.modeSwitchButton_active {
+  composes: toggleGroupOption_active;
+}
+
+.modeSwitchButton:not(.modeSwitchButton_active) {
+  background: transparent;
+}
+
+.pageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-9);
+  flex-grow: 1;
+  max-width: var(--bp-md);
+}
+
+@media (max-width: 80rem) {
+  .workspaceMeta {
+    justify-content: space-between;
+  }
+
+  .stack header{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 0;
+  }
+
+  .workspaceHeader__textContent {
+    margin-top: var(--space-10);
+  }
+
+  .workspaceHeader__textContent h1,
+  .workspaceHeader__textContent h2
+  {
+    margin-top: var(--space-2);
+    margin-bottom: 0;
+  }
+  .workspaceHeader__textContent p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .workspaceHeader__textContent h1:first-child,
+  .workspaceHeader__textContent h2:first-child,
+  .workspaceHeader__textContent p:first-child {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 64rem) {
+  .appShell{
+    flex-direction: column;
+  }
+
+  .pageGrid{
+    max-width: 100%;
+  }
+
+  .workspaceHeader__textContent {
+    max-width: 100%;
+    margin-top: var(--space-8);
+  }
+
+  .workspaceMeta *{
+    border-radius: var(--radius-xs);
+  }
+}
+
+@media (max-width: 48rem) {
+  .pageGrid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Reduce spacing for tablet */
+  .appShell {
+    gap: var(--space-7);
+    padding: var(--space-9) var(--space-5);
+  }
+
+  .stack {
+    padding: var(--space-7);
+    border-radius: var(--radius-md);
+  }
+
+  .pageGrid {
+    gap: var(--space-5);
+  }
+
+  .workspaceMeta {
+    margin-top: var(--space-5);
+    gap: var(--space-5);
+  }
+
+  .workspaceLinks {
+    gap: var(--space-4);
+  }
+
+  .workspaceHeader__textContent {
+    margin-top: var(--space-8);
+  }
+}
+
+/* custom max width due to breakpoint nature on 596px*/
+@media (max-width: 37rem) {
+  .workspaceMeta * {
+    width: 100%;  
+  }
+
+  .workspaceHeader__textContent {
+    margin-top: var(--space-6)
+  }
+}
+
+/* Mobile: reduce spacing and border-radius further */
+@media (max-width: 31rem) {
+  .appShell {
+    gap: var(--space-5);
+    padding: var(--space-7) var(--space-4);
+  }
+
+  .stack {
+    padding: var(--space-5);
+    border-radius: var(--radius-sm);
+  }
+
+  .pageGrid {
+    gap: var(--space-4);
+  }
+
+  .ghostLink {
+    border-radius: var(--radius-md);
+  }
+
+  .workspaceHeader__textContent {
+    margin-top: var(--space-4)
+  }
+
+  .workspaceHeader__textContent h1,
+  .workspaceHeader__textContent h2,
+  .workspaceHeader__textContent p {
+    margin-top: var(--space-1);
+    margin-bottom: 0;
+  }
+
+  .workspaceHeader__textContent h1:first-child,
+  .workspaceHeader__textContent h2:first-child,
+  .workspaceHeader__textContent p:first-child {
+    margin-top: 0;
+  }
+}

@@ -62,28 +62,34 @@ src/
    - React components, hooks for UI usage, and styles that render the application.
    - Consumes services only through the application layer; never talks to `db.ts` directly.
 
+> You may see UI sometimes accessing types from domain -> it's because we're working PRACTICALLY on frontend all the time, it'd be boilerplate to have to move it to application like traditionally it would be done
+
 ## Naming Conventions
 
-| Artifact                        | Convention / Example                                  |
-|---------------------------------|-------------------------------------------------------|
-| Folders                         | kebab-case (`delete-campaign-modal`)                  |
-| Feature related components      | kebab-case (`campagn-form.tsx`)                       |
-| React components & Contexts     | PascalCase (`Button.tsx`, `AuthProvider.tsx`)         |
-| Hooks                           | camelCase prefixed with `use` (`useCampaigns`)        |
-| Service                         | kebab-case (`campaign-service.ts`)                    |
-| Infrastructure                  | snake_case (`database_system.ts`)                     |
-| Types & interfaces              | PascalCase (`Campaign`, `ServiceResponse`)            |
-| Constants & enums               | SCREAMING_SNAKE_CASE (`MIN_BID_AMOUNT`)               |
-| Utility functions               | kebab-case (`format-currency.ts`)                     |
-| CSS / SCSS modules              | kebab-case (`campaign-form.module.css`)               |
-| query/mutations/schema/page     | file.query/mutation.ts (`useDeleteCampaign.query.ts`) |
+| Artifact                        | Convention / Example                                           |
+|---------------------------------|----------------------------------------------------------------|
+| Folders                         | kebab-case (`delete-campaign-modal`)                           |
+| Feature related components      | kebab-case (`campaign-form.tsx`)                               |
+| component direct parent folders | matching case e.g. (`StatusToggle`) - for easier visual search |
+| React components & Contexts     | PascalCase (`Button.tsx`, `AuthProvider.tsx`)                  |
+| Hooks                           | camelCase prefixed with `use` (`useCampaigns`)                 |
+| Service                         | kebab-case (`campaign-service.ts`)                             |
+| Infrastructure                  | snake_case (`database_system.ts`)                              |
+| Types & interfaces              | PascalCase (`Campaign`, `ServiceResponse`)                     |
+| Constants & enums               | SCREAMING_SNAKE_CASE (`MIN_BID_AMOUNT`)                        |
+| Utility functions               | kebab-case (`format-currency.ts`)                              |
+| CSS / SCSS modules              | kebab-case (`campaign-form.module.css`)                        |
+| query/mutations/schema/page     | file.query/mutation.ts (`useDeleteCampaign.query.ts`)          |
+| style                           | camelCase.module.css (`componentName.module.css`)              |
 
 > kebab-case files will use camelCase for its variables/functions intended for export - js doesn't accept "-" for variable/function name usage
+
+> styles should be next to related component in the same folder (not including global styles & utils) - for such - DIRECT parent folders should have matching case to the naming convention for the tsx files in it, it's so because it lowers the vertical height 2x. 
 
 ## Coding Standards
 
 - **Type safety**: Avoid `any`. Leverage discriminated unions for service responses.
-- **Validation**: Use Zod schemas (eg. `campaignSchema`) both on create and update flows to keep UI and data constraints aligned.
+- **Validation**: Use Zod schemas (eg. `campaignSchema`) both on create and update flows to keep UI and data constraints aligned. (Note: only on "BE" side - we've got everything on client side, and hence time is precious that will suffice)
 - **Error handling**: Map infrastructure errors to HTTP-like status codes via `StatusCode` enum; expose user-friendly `errorMessage` texts.
 - **State management**: Start with local state + `react-query`-style patterns inside hooks; introduce external state only when multiple features share the same data.
 - **Imports**: Use path aliases once configured; group imports: external → domain/application → infrastructure → local.
@@ -92,12 +98,42 @@ src/
 ## UI & UX Principles
 
 - Responsive breakpoints (mobile-first):
-  - `xs: 370px`, `sm: 500px`, `md: 768px`, `lg: 1024px`, `xl: 1280px`.
+  - `xs: 23rem`, `sm: 31rem`, `md: 48rem`, `lg: 64rem`, `xl: 80rem`, `2xl: 96rem`.
 - Forms reuse shared components so the Add/Edit screens stay consistent.
 - `CampaignViewPageTemplate` renders shared page template (tabs, copy) for both create and edit flows while `CampaignForm` keeps field parity between modes.
 - Campaign list supports delete confirmation modals triggered both from the list row and the edit view.
 - Typeahead inputs for keywords/towns reuse one datasource to guarantee consistent options.
 - CSS toolchain: vanilla CSS or preferred preprocessor (e.g., SCSS). Avoid Tailwind.
+
+### Design System & CSS Variables
+
+All styles use centralized CSS variables for consistency and maintainability. Variables are organized in `src/styles/variables/`:
+
+**Colors** (`colors.css`)
+- Primary/accent colors with gradients and variants
+- Semantic text colors (default, muted, subtle, hint, ghost)
+- Background colors for cards, panels, controls
+- Border colors from subtle to hover states
+- Status colors (success, error) with backgrounds
+- Shadows (card, button)
+
+**Typography** (`typography.css`)
+- Font size scale from `--font-size-2xs` (0.75rem) to `--font-size-3xl` (2rem)
+- Font weights: normal (400), medium (500), semibold (600)
+- Letter spacing presets: tight, normal, wide
+
+**Spacing** (`spacing.css`)
+- Base scale from `--space-1` (0.25rem) to `--space-14` (3.5rem)
+- Semantic spacing: inline, stack, section
+- Gap presets for flex/grid layouts
+- Padding presets for buttons, controls, cards, panels
+- Border radius scale (`--radius-sm` to `--radius-full`)
+
+**Breakpoints** (`breakpoints.css`)
+- Documented breakpoint values: `--bp-xs` (23rem) through `--bp-2xl` (96rem)
+- Reference patterns for media queries
+
+All component modules import these variables via `src/styles/variables/index.css`, ensuring design token consistency across the application.
 
 ## Workflow Tips
 
