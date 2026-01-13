@@ -1,4 +1,5 @@
 import { useAccountBalanceQuery } from "/src/application/hooks/account-balance/useAccountBalance";
+import { useCampaignsQuery } from "/src/application/hooks/campaigns/useCampaigns";
 import styles from "./balance-panel.module.css";
 
 /**
@@ -15,6 +16,14 @@ const BalancePanel = () => {
     isError: isBalanceError,
     error: balanceError,
   } = useAccountBalanceQuery();
+
+  const {
+    data: campaigns,
+  } = useCampaignsQuery();
+
+  const maxFunds = Array.isArray(campaigns)
+    ? campaigns.reduce((sum, c) => sum + (typeof c.campaignFund === "number" ? c.campaignFund : 0), 0)
+    : 0;
 
   return (
     <div
@@ -41,6 +50,10 @@ const BalancePanel = () => {
           !isBalanceError &&
           typeof balance !== "number" &&
           "--"}
+      </p>
+      <p className={styles.balancePanel__label}>Max campaign funds</p>
+      <p className={styles.balancePanel__value}>
+        {typeof maxFunds === "number" ? formatCurrency(maxFunds) : "--"}
       </p>
     </div>
   );
