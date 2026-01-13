@@ -38,7 +38,7 @@ type CampaignFormProps = {
   serverValidationErrors?: ValidationErrors;
   successMessage?: string | null;
   onSubmit: (values: CampaignFormData) => Promise<void>;
-  onDraftChange?: (values: CampaignFormData) => void;
+  onDraftChange?: (values: CampaignFormState) => void;
 };
 
 type CampaignFormState = {
@@ -62,16 +62,6 @@ const toFormState = (values: CampaignFormData): CampaignFormState => ({
   statusOn: values.statusOn,
   town: values.town ?? "",
   radius: values.radius !== undefined ? String(values.radius) : "",
-});
-
-const toFormData = (state: CampaignFormState): CampaignFormData => ({
-  name: state.name.trim(),
-  keywords: state.keywords.map((keyword) => keyword.trim()).filter(Boolean),
-  bidAmount: Number(state.bidAmount),
-  campaignFund: Number(state.campaignFund),
-  statusOn: state.statusOn,
-  town: state.town.trim(),
-  radius: Number(state.radius),
 });
 
 const CampaignForm = ({
@@ -101,7 +91,7 @@ const CampaignForm = ({
 
   useEffect(() => {
     if (onDraftChange) {
-      onDraftChange(toFormData(formState));
+      onDraftChange(formState);
     }
   }, [formState, onDraftChange]);
 
@@ -135,8 +125,7 @@ const CampaignForm = ({
     event.preventDefault();
     setErrors({});
 
-    const payload = toFormData(formState);
-    const parsed = campaignSchema.safeParse(payload);
+    const parsed = campaignSchema.safeParse(formState);
 
     if (!parsed.success) {
       setErrors(mapValidationErrors(parsed.error));
