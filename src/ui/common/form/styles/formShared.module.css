@@ -1,0 +1,38 @@
+.controlBase {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-default);
+  background: var(--color-bg-control);
+  padding: var(--padding-control);
+  color: inherit;
+  font-size: var(--font-size-base);
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.controlBase:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary-glow);
+}
+
+.controlError {
+  border-color: var(--color-error);
+}
+
+.pillButtonBase {
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-strong);
+  background: transparent;
+  padding: var(--padding-button-sm);
+  color: var(--color-text);
+  font-weight: 500;
+  transition:
+    border-color 150ms ease,
+    background 150ms ease;
+}
+
+.pillButtonOn {
+  border-color: var(--color-primary-border);
+  background: var(--color-primary-bg);
+}
