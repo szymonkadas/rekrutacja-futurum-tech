@@ -80,6 +80,8 @@ const Dashboard = () => {
       if (!stillExists) {
         startTransition(() => setSelectedCampaignId(data[0].id));
       }
+    } else if (selectedCampaignId) {
+      startTransition(() => setSelectedCampaignId(null));
     }
   }, [data, selectedCampaignId]);
 
@@ -132,6 +134,7 @@ const Dashboard = () => {
                       : styles.modeSwitchButton
                   }
                   onClick={() => setMode("edit")}
+                  disabled={!selectedCampaignId}
                 >
                   Edit
                 </button>
