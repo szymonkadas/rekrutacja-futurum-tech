@@ -1,0 +1,79 @@
+/**
+ * Color System Variables
+ * 
+ * Organized by semantic usage for consistent theming.
+ */
+
+:root {
+  /* ═══════════════════════════════════════════════════════════════════════════
+     PRIMARY / ACCENT
+     ═══════════════════════════════════════════════════════════════════════════ */
+  --color-primary: #7c98ff;
+  --color-primary-light: #9de3ff;
+  --color-primary-gradient: linear-gradient(120deg, var(--color-primary), var(--color-primary-light));
+  --color-primary-glow: rgba(124, 152, 255, 0.25);
+  --color-primary-muted: rgba(124, 152, 255, 0.18);
+  --color-primary-bg: rgba(124, 152, 255, 0.15);
+  --color-primary-border: rgba(124, 152, 255, 0.7);
+  --color-primary-ring: rgba(124, 152, 255, 0.4);
+  --color-primary-shadow: rgba(124, 152, 255, 0.3);
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     TEXT
+     ═══════════════════════════════════════════════════════════════════════════ */
+  --color-text: #f5f6fb;
+  --color-text-strong: rgba(255, 255, 255, 0.9);
+  --color-text-subtle: rgba(255, 255, 255, 0.6);
+  --color-text-hint: rgba(255, 255, 255, 0.5);
+  --color-text-ghost: rgba(255, 255, 255, 0.75);
+  --color-text-ghost-hover: rgba(255, 255, 255, 0.95);
+  --color-text-dark: #05060a;
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     BACKGROUNDS
+     ═══════════════════════════════════════════════════════════════════════════ */
+  --color-bg-body-start: #05060c;
+  --color-bg-body-mid: #090a11;
+  --color-bg-body-end: #05060a;
+  --color-bg-radial-start: #1e2140;
+  --color-bg-radial-end: #08090f;
+
+  --color-bg-card: rgba(18, 18, 24, 0.75);
+  --color-bg-card-dark: rgba(22, 24, 31, 0.9);
+  --color-bg-panel: rgba(15, 19, 31, 0.9);
+  --color-bg-control: rgba(11, 12, 20, 0.65);
+  --color-bg-control-alt: rgba(11, 12, 20, 0.55);
+  --color-bg-overlay: rgba(255, 255, 255, 0.04);
+
+  /* Accent glow backgrounds (for body gradients) */
+  --color-glow-primary: rgba(90, 123, 255, 0.25);
+  --color-glow-accent: rgba(93, 230, 255, 0.2);
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     BORDERS
+     ═══════════════════════════════════════════════════════════════════════════ */
+  --color-border-light: rgba(255, 255, 255, 0.08);
+  --color-border-default: rgba(255, 255, 255, 0.12);
+  --color-border-medium: rgba(255, 255, 255, 0.15);
+  --color-border-strong: rgba(255, 255, 255, 0.25);
+  --color-border-active: rgba(255, 255, 255, 0.35);
+  --color-border-hover: rgba(255, 255, 255, 0.45);
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     STATUS COLORS
+     ═══════════════════════════════════════════════════════════════════════════ */
+  /* Success */
+  --color-success: rgba(0, 200, 0);
+  --color-success-muted: rgba(0, 200, 0, 0.8);
+  --color-success-bg: rgba(65, 214, 162, 0.2);
+
+  /* Error */
+  --color-error: #ff8080;
+  --color-error-bg: rgba(255, 108, 108, 0.18);
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     SHADOWS
+     ═══════════════════════════════════════════════════════════════════════════ */
+  --shadow-card: 0 20px 50px rgba(0, 0, 0, 0.32);
+  --shadow-button: 0 8px 20px var(--color-primary-shadow);
+}

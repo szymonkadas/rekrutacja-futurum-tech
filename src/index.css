@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap");
+@import "./styles/variables/index.css";
+
+:root {
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--color-text);
+  background: radial-gradient(circle at top, var(--color-bg-radial-start) 0%, var(--color-bg-radial-end) 55%);
+  min-height: 100%;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      var(--color-glow-primary),
+      transparent 40%
+    ),
+    radial-gradient(circle at 80% 0%, var(--color-glow-accent), transparent 35%),
+    linear-gradient(180deg, var(--color-bg-body-start) 0%, var(--color-bg-body-mid) 60%, var(--color-bg-body-end) 100%);
+  color: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input {
+  cursor: text; 
+}
+
+select{
+  cursor: pointer;
+}

@@ -1,0 +1,10 @@
+/**
+ * CSS Variables Index
+ * 
+ * Import this file once in the main stylesheet to load all variables.
+ */
+
+@import "./colors.css";
+@import "./breakpoints.css";
+@import "./spacing.css";
+@import "./typography.css";

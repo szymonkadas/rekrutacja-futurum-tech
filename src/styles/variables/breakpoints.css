@@ -1,0 +1,44 @@
+/**
+ * Breakpoint System Variables
+ * 
+ * Mobile-first responsive breakpoints.
+ * Use with @media (min-width: var(--bp-*)) or custom media queries.
+ * 
+ * Note: CSS custom properties cannot be used directly in media queries.
+ * These serve as documentation and can be used with PostCSS plugins
+ * or referenced in JS. For media queries, use the raw values below.
+ * 
+ * Breakpoint Reference:
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Name      Value       Pixels    Usage
+ * ─────────────────────────────────────────────────────────────────────────────
+ * xs        23rem       368px     Small phones
+ * sm        31rem       496px     Large phones
+ * md        48rem       768px     Tablets
+ * lg        64rem       1024px    Small laptops
+ * xl        80rem       1280px    Desktops
+ * 2xl       96rem       1536px    Large screens
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+:root {
+  --bp-xs: 23rem;   /* 368px */
+  --bp-sm: 31rem;   /* 496px */
+  --bp-md: 48rem;   /* 768px - tablet */
+  --bp-lg: 64rem;   /* 1024px - laptop */
+  --bp-xl: 80rem;   /* 1280px - desktop */
+  --bp-2xl: 96rem;  /* 1536px - large screen */
+}
+
+/**
+ * Common Media Query Patterns (copy-paste reference):
+ * 
+ * Mobile-first (min-width):
+ *   @media (min-width: 48rem) { }    -> tablet and up
+ *   @media (min-width: 64rem) { }    -> laptop and up
+ *   @media (min-width: 96rem) { }    -> large screens
+ * 
+ * Desktop-first (max-width):
+ *   @media (max-width: 768px) { }    -> tablet and below
+ *   @media (max-width: 48rem) { }    -> mobile only
+ */

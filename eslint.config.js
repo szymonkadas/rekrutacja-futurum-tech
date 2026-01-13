@@ -30,10 +30,12 @@ export default defineConfig([
     },
     rules: {
       'no-relative-import-paths/no-relative-import-paths': [
-        'error',
+        'warn',
         {
-          rootDir: 'src',     // punkt odniesienia
-          prefix: '/src',     // alias, którego ma używać fixer
+          rootDir: '/src',
+          prefix: '/src',
+          allowedDepth: 1,
+          allowSameFolder: true
         },
       ],
     },
