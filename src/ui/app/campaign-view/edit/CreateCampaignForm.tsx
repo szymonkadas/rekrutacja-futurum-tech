@@ -11,6 +11,8 @@ import { useUpdateCampaignMutation } from "/src/application/hooks/campaigns/useU
 
 type EditCampaignFormProps = {
   campaign: Campaign;
+  initialValues?: CampaignFormData;
+  onDraftChange?: (values: CampaignFormData) => void;
 };
 
 const toFormData = (campaign: Campaign): CampaignFormData => ({
@@ -23,7 +25,11 @@ const toFormData = (campaign: Campaign): CampaignFormData => ({
   radius: campaign.radius,
 });
 
-const EditCampaignForm = ({ campaign }: EditCampaignFormProps) => {
+const EditCampaignForm = ({
+  campaign,
+  initialValues,
+  onDraftChange,
+}: EditCampaignFormProps) => {
   const mutation = useUpdateCampaignMutation();
   const [serverError, setServerError] = useState<string | null>(null);
   const [serverValidationErrors, setServerValidationErrors] =
@@ -61,7 +67,7 @@ const EditCampaignForm = ({ campaign }: EditCampaignFormProps) => {
   return (
     <CampaignForm
       mode="edit"
-      defaultValues={toFormData(campaign)}
+      defaultValues={initialValues ?? toFormData(campaign)}
       submitLabel="Save changes"
       description={`Updating ${campaign.name}`}
       isSubmitting={mutation.isPending}
@@ -69,6 +75,7 @@ const EditCampaignForm = ({ campaign }: EditCampaignFormProps) => {
       serverError={serverError}
       serverValidationErrors={serverValidationErrors}
       successMessage={successMessage}
+      onDraftChange={onDraftChange}
     />
   );
 };

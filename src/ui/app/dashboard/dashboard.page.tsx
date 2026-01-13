@@ -1,6 +1,8 @@
 import { startTransition, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useCampaignsQuery } from "/src/application/hooks/campaigns/useCampaigns";
-import { Link } from "react-router-dom";
+import type { CampaignFormData } from "/src/application/schemas/campaignSchema";
+import { routes } from "/src/config/routes";
 import BalancePanel from "./balance-panel/balance-panel";
 import CampaignList from "../campaign-list/campaign-list";
 import CreateCampaignPage from "../campaign-view/create/create-campaign.page";
@@ -24,10 +26,38 @@ const Dashboard = () => {
     null,
   );
   const [mode, setMode] = useState<"create" | "edit">("create");
+  const [createDraft, setCreateDraft] = useState<CampaignFormData | undefined>();
+  const [editDrafts, setEditDrafts] = useState<Record<string, CampaignFormData>>({});
 
   const handleSelectCampaign = (id: string) => {
     setSelectedCampaignId(id);
     setMode("edit");
+  };
+
+  const navigate = useNavigate();
+
+  const handleOpenCreateStandalone = () => {
+    navigate(routes.create(), {
+      state: { draft: createDraft },
+    });
+  };
+
+  const handleOpenEditStandalone = () => {
+    if (!selectedCampaignId) return;
+    navigate(routes.edit(selectedCampaignId), {
+      state: {
+        draft: editDrafts[selectedCampaignId],
+        campaignId: selectedCampaignId,
+      },
+    });
+  };
+
+  const handleCreateDraftChange = (draft: CampaignFormData) => {
+    setCreateDraft(draft);
+  };
+
+  const handleEditDraftChange = (draft: CampaignFormData, campaignId: string) => {
+    setEditDrafts((prev) => ({ ...prev, [campaignId]: draft }));
   };
 
   useEffect(() => {
@@ -59,12 +89,21 @@ const Dashboard = () => {
             </p>
             <div className={styles.workspaceMeta}>
               <div className={styles.workspaceLinks}>
-                <Link className={styles.ghostLink} to="/create">
+                <button
+                  type="button"
+                  className={styles.ghostLink}
+                  onClick={handleOpenCreateStandalone}
+                >
                   Open create page
-                </Link>
-                <Link className={styles.ghostLink} to="/edit">
+                </button>
+                <button
+                  type="button"
+                  className={styles.ghostLink}
+                  onClick={handleOpenEditStandalone}
+                  disabled={!selectedCampaignId}
+                >
                   Open edit page
-                </Link>
+                </button>
               </div>
               <div className={styles.modeSwitch}>
                 <button
@@ -106,11 +145,19 @@ const Dashboard = () => {
 
       <div className={styles.pageGrid}>
         {mode === "create" ? (
-          <CreateCampaignPage showTabs={false} />
+          <CreateCampaignPage
+            showTabs={false}
+            showStandaloneLink
+            onOpenStandalone={handleOpenCreateStandalone}
+            onDraftChange={handleCreateDraftChange}
+          />
         ) : (
           <EditCampaignPage
             campaignId={selectedCampaignId ?? undefined}
             showTabs={false}
+            showStandaloneLink
+            onOpenStandalone={handleOpenEditStandalone}
+            onDraftChange={handleEditDraftChange}
           />
         )}
       </div>

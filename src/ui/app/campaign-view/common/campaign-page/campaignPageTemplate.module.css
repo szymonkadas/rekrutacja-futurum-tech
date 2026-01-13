@@ -8,12 +8,16 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-9);
+  max-width: 70dvw;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .campaignPage__header {
   display: flex;
   flex-direction: row;
   gap: var(--space-7);
+  align-items: flex-start;
 }
 .campaignPage__header div h2, .campaignPage__header div p {
   margin-bottom: 0;
@@ -22,6 +26,36 @@
   margin-top: 0;
 }
 
+
+.campaignPage__headerMeta {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: flex-end;
+}
+
+.headerActionButton {
+  border: 1px solid var(--color-border-light);
+  background: transparent;
+  color: var(--color-text-primary);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.headerActionButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.headerActionButton:not(:disabled):hover,
+.headerActionButton:not(:disabled):focus-visible {
+  border-color: var(--color-border);
+  color: var(--color-text-strong);
+}
 
 .campaignPage__content {
   display: flex;
@@ -46,6 +80,11 @@
 }
 
 @media (max-width: 80rem) {
+  .campaignPage{
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
   .campaignPage__header h1,
   .campaignPage__header h2,
   .campaignPage__header p {
@@ -74,6 +113,17 @@
     position: relative;
   }
 
+  .campaignPage__headerMeta {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .headerActionButton {
+    width: fit-content;
+  }
+
   .campaignPage__content {
     gap: var(--space-5);
   }
@@ -95,6 +145,12 @@
 
   .campaignPage__header {
     gap: var(--space-4);
+  }
+
+  .campaignPage__headerMeta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
   }
 
   .campaignPage__content {

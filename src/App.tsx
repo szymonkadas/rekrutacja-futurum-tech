@@ -11,14 +11,15 @@ import "/src/App.css";
 import Dashboard from "./ui/app/dashboard/dashboard.page";
 import EditCampaignPage from "./ui/app/campaign-view/edit/EditCampaign.page";
 import CreateCampaignPage from "./ui/app/campaign-view/create/create-campaign.page";
+import { routes, RoutePaths } from "./config/routes";
 
 const App = () => {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/" element={<Dashboard/>} />
+        <Route path={RoutePaths.HOME} element={<Dashboard/>} />
         <Route
-          path="/create"
+          path={RoutePaths.CREATE}
           element={
             <StandaloneLayout>
               <CreateCampaignPage />
@@ -26,15 +27,15 @@ const App = () => {
           }
         />
         <Route
-          path="/edit"
+          path={RoutePaths.EDIT}
           element={
             <StandaloneLayout>
               <EditCampaignPage />
             </StandaloneLayout>
           }
         />
-        <Route path="/edit/:campaignId" element={<StandaloneEditRoute />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path={RoutePaths.EDIT_WITH_PARAM} element={<StandaloneEditRoute />} />
+        <Route path="*" element={<Navigate to={routes.home()} replace />} />
       </Routes>
     </HashRouter>
   );
@@ -54,7 +55,7 @@ const StandaloneEditRoute = () => {
 const StandaloneLayout = ({ children }: { children: ReactNode }) => (
   <main className="single-pane">
     <div className="single-pane__back">
-      <Link to="/">← Back to workspace</Link>
+      <Link to={routes.home()}>← Back to workspace</Link>
     </div>
     {children}
   </main>
