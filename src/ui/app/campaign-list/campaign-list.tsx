@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import type { Campaign } from "/src/domain/entities/Campaign";
 import DeleteModal from "/src/ui/common/delete-modal/DeleteModal";
+import { routes } from "/src/config/routes";
 import { useDeleteCampaignMutation } from "/src/application/hooks/campaigns/useDeleteCampaign.mutation";
 import styles from "./campaignList.module.css";
 
@@ -99,7 +100,7 @@ const CampaignList = ({
             <button type="button" onClick={() => onSelect(campaign.id)}>
               Edit in form
             </button>
-            <Link to={`/edit/${campaign.id}`}>Open page</Link>
+            <Link to={routes.edit(campaign.id)}>Open page</Link>
             <button
               type="button"
               className={styles.deleteAction}

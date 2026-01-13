@@ -34,6 +34,37 @@ export const campaignService = {
   },
 
   /**
+   * Retrieves a single campaign by ID.
+   * @param {string} id - Campaign identifier.
+   * @returns {Promise<ServiceResponse<Campaign>>}
+   */
+  getCampaignById: async (
+    id: string,
+  ): Promise<ServiceResponse<Campaign>> => {
+    try {
+      const campaign = await db.getCampaignById(id);
+      return { success: true, data: campaign };
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Failed to fetch campaign";
+
+      if (errorMessage.includes("not found")) {
+        return {
+          success: false,
+          errorMessage,
+          statusCode: STATUS_CODE.NOT_FOUND,
+        };
+      }
+
+      return {
+        success: false,
+        errorMessage,
+        statusCode: STATUS_CODE.INTERNAL_SERVER_ERROR,
+      };
+    }
+  },
+
+  /**
    * Creates a new campaign.
    * Validates the campaign data against the schema, checks for sufficient funds, and adds the campaign to the database.
    * Also syncs any new keywords found in the campaign.

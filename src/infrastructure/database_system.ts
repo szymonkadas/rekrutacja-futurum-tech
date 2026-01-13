@@ -22,6 +22,24 @@ export const db = {
   },
 
   /**
+   * Retrieves a single campaign by its ID.
+   * @param {string} id - The campaign identifier.
+   * @returns {Promise<Campaign>} A promise that resolves to the campaign.
+   * @throws {Error} If the campaign cannot be found.
+   */
+  getCampaignById: async (id: string): Promise<Campaign> => {
+    return new Promise((resolve, reject) => {
+      const campaign = campaigns.find((c) => c.id === id);
+      if (!campaign) {
+        reject(new Error("Campaign not found"));
+        return;
+      }
+
+      setTimeout(() => resolve({ ...campaign }), 250);
+    });
+  },
+
+  /**
    * Adds a new campaign to the database.
    * Deducts the campaign fund from the account balance.
    * @param {Omit<Campaign, "id">} campaign - The campaign data to add (without ID).

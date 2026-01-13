@@ -1,4 +1,5 @@
 import type { TabDefinition } from "../types/TabDefinition";
+import { routes } from "/src/config/routes";
 
 /**
  * Builds an array of TabDefinition objects for the campaign form tabs.
@@ -12,13 +13,13 @@ export const buildCampaignFormTabs = (
   {
     id: "create",
     label: "Create",
-    to: "/create",
+    to: routes.create(),
     isActive: active === "create",
   },
   {
     id: "edit",
     label: "Edit",
-    to: "/edit",
+    to: routes.edit(),
     isActive: active === "edit",
   },
 ];

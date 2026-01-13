@@ -20,7 +20,15 @@ const INITIAL_VALUES: CampaignFormData = {
   radius: 5,
 };
 
-const CreateCampaignForm = () => {
+type CreateCampaignFormProps = {
+  initialValues?: CampaignFormData;
+  onDraftChange?: (values: CampaignFormData) => void;
+};
+
+const CreateCampaignForm = ({
+  initialValues,
+  onDraftChange,
+}: CreateCampaignFormProps) => {
   const mutation = useCreateCampaignMutation();
   const [serverError, setServerError] = useState<string | null>(null);
   const [serverValidationErrors, setServerValidationErrors] =
@@ -53,7 +61,7 @@ const CreateCampaignForm = () => {
     <CampaignForm
       key={formVersion}
       mode="create"
-      defaultValues={INITIAL_VALUES}
+      defaultValues={initialValues ?? INITIAL_VALUES}
       submitLabel="Create campaign"
       description="Define targeting, budget, and status before activating the campaign."
       isSubmitting={mutation.isPending}
@@ -61,6 +69,7 @@ const CreateCampaignForm = () => {
       serverError={serverError}
       serverValidationErrors={serverValidationErrors}
       successMessage={successMessage}
+      onDraftChange={onDraftChange}
     />
   );
 };

@@ -38,6 +38,7 @@ type CampaignFormProps = {
   serverValidationErrors?: ValidationErrors;
   successMessage?: string | null;
   onSubmit: (values: CampaignFormData) => Promise<void>;
+  onDraftChange?: (values: CampaignFormData) => void;
 };
 
 type CampaignFormState = {
@@ -83,6 +84,7 @@ const CampaignForm = ({
   serverValidationErrors,
   successMessage,
   onSubmit,
+  onDraftChange,
 }: CampaignFormProps) => {
   const keywordsQuery = useAvailableKeywordsQuery();
   const [formState, setFormState] = useState<CampaignFormState>(() =>
@@ -96,6 +98,12 @@ const CampaignForm = ({
       setErrors({});
     });
   }, [defaultValues]);
+
+  useEffect(() => {
+    if (onDraftChange) {
+      onDraftChange(toFormData(formState));
+    }
+  }, [formState, onDraftChange]);
 
   useEffect(() => {
     if (
