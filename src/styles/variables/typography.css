@@ -8,15 +8,15 @@
   /* ═══════════════════════════════════════════════════════════════════════════
      FONT SIZE SCALE
      ═══════════════════════════════════════════════════════════════════════════ */
-  --font-size-2xs: 0.75rem;   /* 12px - eyebrow, tiny labels */
-  --font-size-xs: 0.8rem;     /* ~13px - labels, captions, dt */
-  --font-size-sm: 0.85rem;    /* ~14px - small text, hints */
-  --font-size-md: 0.9rem;     /* ~14.4px - buttons, chips, links */
-  --font-size-base: 1rem;     /* 16px - body text, inputs */
-  --font-size-lg: 1.1rem;     /* ~18px - emphasized values, dd */
-  --font-size-xl: 1.35rem;    /* ~22px - large values, highlights */
-  --font-size-2xl: 1.5rem;    /* 24px - section headings */
-  --font-size-3xl: 2rem;      /* 32px - page headings */
+  --font-size-2xs: 0.75rem; /* 12px - eyebrow, tiny labels */
+  --font-size-xs: 0.8rem; /* ~13px - labels, captions, dt */
+  --font-size-sm: 0.85rem; /* ~14px - small text, hints */
+  --font-size-md: 0.9rem; /* ~14.4px - buttons, chips, links */
+  --font-size-base: 1rem; /* 16px - body text, inputs */
+  --font-size-lg: 1.1rem; /* ~18px - emphasized values, dd */
+  --font-size-xl: 1.35rem; /* ~22px - large values, highlights */
+  --font-size-2xl: 1.5rem; /* 24px - section headings */
+  --font-size-3xl: 2rem; /* 32px - page headings */
 
   /* ═══════════════════════════════════════════════════════════════════════════
      FONT WEIGHTS

@@ -10,7 +10,11 @@
      ═══════════════════════════════════════════════════════════════════════════ */
   --color-primary: #7c98ff;
   --color-primary-light: #9de3ff;
-  --color-primary-gradient: linear-gradient(120deg, var(--color-primary), var(--color-primary-light));
+  --color-primary-gradient: linear-gradient(
+    120deg,
+    var(--color-primary),
+    var(--color-primary-light)
+  );
   --color-primary-glow: rgba(124, 152, 255, 0.25);
   --color-primary-muted: rgba(124, 152, 255, 0.18);
   --color-primary-bg: rgba(124, 152, 255, 0.15);

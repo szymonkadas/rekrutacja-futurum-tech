@@ -6,10 +6,7 @@ type FormatCurrencyOptions = {
   currency?: string;
 };
 
-const formatCurrency = (
-  value: number,
-  options?: FormatCurrencyOptions,
-) => {
+const formatCurrency = (value: number, options?: FormatCurrencyOptions) => {
   const locale = options?.locale ?? DEFAULT_LOCALE;
   const currency = options?.currency ?? DEFAULT_CURRENCY;
 

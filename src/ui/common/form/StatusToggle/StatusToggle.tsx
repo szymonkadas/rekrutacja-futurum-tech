@@ -20,7 +20,9 @@ const StatusToggleField = ({
     <FormField label={label} error={error} className={styles.field}>
       <button
         type="button"
-        className={value ? `${styles.toggle} ${styles.toggleOn}` : styles.toggle}
+        className={
+          value ? `${styles.toggle} ${styles.toggleOn}` : styles.toggle
+        }
         onClick={onToggle}
         aria-pressed={value}
         disabled={disabled}

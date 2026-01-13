@@ -3,7 +3,10 @@ import { toast } from "react-hot-toast";
 import { CAMPAIGNS_QUERY_KEY } from "/src/application/hooks/campaigns/useCampaigns";
 import { AVAILABLE_KEYWORDS_QUERY_KEY } from "/src/application/hooks/keywords/useAvailableKeywords";
 import { campaignService } from "/src/application/services/campaign_service/campaign-service";
-import { buildBalanceChangeMessage, snapshotAccountBalance } from "/src/application/utils/account-balance-change";
+import {
+  buildBalanceChangeMessage,
+  snapshotAccountBalance,
+} from "/src/application/utils/account-balance-change";
 import ensureQuerySuccess from "/src/application/utils/ensure-query-success";
 import type { Campaign } from "/src/domain/entities/Campaign";
 

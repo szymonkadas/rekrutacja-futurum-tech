@@ -3,7 +3,10 @@ import { campaignService } from "/src/application/services/campaign_service/camp
 import ensureQuerySuccess from "/src/application/utils/ensure-query-success";
 import type { Campaign } from "/src/domain/entities/Campaign";
 
-export const CAMPAIGN_QUERY_KEY = (id?: string) => ["get-campaign", id ?? "first"];
+export const CAMPAIGN_QUERY_KEY = (id?: string) => [
+  "get-campaign",
+  id ?? "first",
+];
 
 /**
  * useCampaignQuery fetches a single campaign.

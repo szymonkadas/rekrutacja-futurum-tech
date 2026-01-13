@@ -9,11 +9,12 @@
   flex-direction: column;
 }
 
-.intro h3, .intro p{
+.intro h3,
+.intro p {
   margin: 0;
 }
 
-.intro h3{
+.intro h3 {
   margin-top: var(--space-4) !important;
 }
 
@@ -68,7 +69,7 @@
     padding: 0;
   }
 
-  .formGrid > *:nth-child(n+3) {
+  .formGrid > *:nth-child(n + 3) {
     order: 2;
     width: 100%;
   }

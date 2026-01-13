@@ -26,8 +26,12 @@ const Dashboard = () => {
     null,
   );
   const [mode, setMode] = useState<"create" | "edit">("create");
-  const [createDraft, setCreateDraft] = useState<CampaignFormData | undefined>();
-  const [editDrafts, setEditDrafts] = useState<Record<string, CampaignFormData>>({});
+  const [createDraft, setCreateDraft] = useState<
+    CampaignFormData | undefined
+  >();
+  const [editDrafts, setEditDrafts] = useState<
+    Record<string, CampaignFormData>
+  >({});
 
   const handleSelectCampaign = (id: string) => {
     setSelectedCampaignId(id);
@@ -56,7 +60,10 @@ const Dashboard = () => {
     setCreateDraft(draft);
   };
 
-  const handleEditDraftChange = (draft: CampaignFormData, campaignId: string) => {
+  const handleEditDraftChange = (
+    draft: CampaignFormData,
+    campaignId: string,
+  ) => {
     setEditDrafts((prev) => ({ ...prev, [campaignId]: draft }));
   };
 

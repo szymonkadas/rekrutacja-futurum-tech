@@ -36,7 +36,6 @@ const KeywordsField = ({
         isLoading={isLoading}
         hasError={Boolean(error)}
       />
-      
     </FormField>
   );
 };

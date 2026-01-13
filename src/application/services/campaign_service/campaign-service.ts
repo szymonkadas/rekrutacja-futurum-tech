@@ -2,16 +2,13 @@ import { z } from "zod";
 import { type Campaign } from "/src/domain/entities/Campaign";
 import { db } from "/src/infrastructure/database_system";
 import STATUS_CODE from "/src/domain/constants/STATUS_CODE";
-import {
-  treeifyError,
-} from "/src/application/utils/treeify-error";
+import { treeifyError } from "/src/application/utils/treeify-error";
 import {
   campaignBaseSchema,
   campaignSchema,
 } from "/src/application/schemas/campaignSchema";
 import { syncCampaignServiceKeywords } from "/src/application/services/campaign_service/helpers";
 import type { ServiceResponse } from "src/application/types/ServiceResponse";
-
 
 // We could split each method into its own file, but that might be overkill for now, it didn't grow too much yet
 export const campaignService = {
@@ -38,9 +35,7 @@ export const campaignService = {
    * @param {string} id - Campaign identifier.
    * @returns {Promise<ServiceResponse<Campaign>>}
    */
-  getCampaignById: async (
-    id: string,
-  ): Promise<ServiceResponse<Campaign>> => {
+  getCampaignById: async (id: string): Promise<ServiceResponse<Campaign>> => {
     try {
       const campaign = await db.getCampaignById(id);
       return { success: true, data: campaign };

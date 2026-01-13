@@ -6,7 +6,11 @@
   line-height: 1.6;
   font-weight: 400;
   color: var(--color-text);
-  background: radial-gradient(circle at top, var(--color-bg-radial-start) 0%, var(--color-bg-radial-end) 55%);
+  background: radial-gradient(
+    circle at top,
+    var(--color-bg-radial-start) 0%,
+    var(--color-bg-radial-end) 55%
+  );
   min-height: 100%;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -27,8 +31,17 @@ body {
       var(--color-glow-primary),
       transparent 40%
     ),
-    radial-gradient(circle at 80% 0%, var(--color-glow-accent), transparent 35%),
-    linear-gradient(180deg, var(--color-bg-body-start) 0%, var(--color-bg-body-mid) 60%, var(--color-bg-body-end) 100%);
+    radial-gradient(
+      circle at 80% 0%,
+      var(--color-glow-accent),
+      transparent 35%
+    ),
+    linear-gradient(
+      180deg,
+      var(--color-bg-body-start) 0%,
+      var(--color-bg-body-mid) 60%,
+      var(--color-bg-body-end) 100%
+    );
   color: inherit;
 }
 
@@ -46,9 +59,9 @@ button {
 }
 
 input {
-  cursor: text; 
+  cursor: text;
 }
 
-select{
+select {
   cursor: pointer;
 }

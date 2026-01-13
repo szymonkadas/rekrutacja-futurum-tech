@@ -22,12 +22,12 @@
  */
 
 :root {
-  --bp-xs: 23rem;   /* 368px */
-  --bp-sm: 31rem;   /* 496px */
-  --bp-md: 48rem;   /* 768px - tablet */
-  --bp-lg: 64rem;   /* 1024px - laptop */
-  --bp-xl: 80rem;   /* 1280px - desktop */
-  --bp-2xl: 96rem;  /* 1536px - large screen */
+  --bp-xs: 23rem; /* 368px */
+  --bp-sm: 31rem; /* 496px */
+  --bp-md: 48rem; /* 768px - tablet */
+  --bp-lg: 64rem; /* 1024px - laptop */
+  --bp-xl: 80rem; /* 1280px - desktop */
+  --bp-2xl: 96rem; /* 1536px - large screen */
 }
 
 /**

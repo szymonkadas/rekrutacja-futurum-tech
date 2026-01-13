@@ -25,13 +25,13 @@
   align-items: stretch;
 }
 
-.workspaceHeader__textContent{
+.workspaceHeader__textContent {
   display: flex;
   flex-direction: column;
   max-width: 560px;
 }
 
-.workspaceHeader__textContent h1{
+.workspaceHeader__textContent h1 {
   margin-bottom: 0;
 }
 
@@ -108,7 +108,7 @@
     justify-content: space-between;
   }
 
-  .stack header{
+  .stack header {
     display: flex;
     flex-direction: column-reverse;
     gap: 0;
@@ -119,8 +119,7 @@
   }
 
   .workspaceHeader__textContent h1,
-  .workspaceHeader__textContent h2
-  {
+  .workspaceHeader__textContent h2 {
     margin-top: var(--space-2);
     margin-bottom: 0;
   }
@@ -137,11 +136,11 @@
 }
 
 @media (max-width: 64rem) {
-  .appShell{
+  .appShell {
     flex-direction: column;
   }
 
-  .pageGrid{
+  .pageGrid {
     max-width: 100%;
   }
 
@@ -150,7 +149,7 @@
     margin-top: var(--space-8);
   }
 
-  .workspaceMeta *{
+  .workspaceMeta * {
     border-radius: var(--radius-xs);
   }
 }
@@ -192,11 +191,11 @@
 /* custom max width due to breakpoint nature on 596px*/
 @media (max-width: 37rem) {
   .workspaceMeta * {
-    width: 100%;  
+    width: 100%;
   }
 
   .workspaceHeader__textContent {
-    margin-top: var(--space-6)
+    margin-top: var(--space-6);
   }
 }
 
@@ -221,7 +220,7 @@
   }
 
   .workspaceHeader__textContent {
-    margin-top: var(--space-4)
+    margin-top: var(--space-4);
   }
 
   .workspaceHeader__textContent h1,

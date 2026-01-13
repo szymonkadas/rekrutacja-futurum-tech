@@ -25,10 +25,8 @@ const CampaignList = ({
 }: CampaignListProps) => {
   const [campaignPendingDeletion, setCampaignPendingDeletion] =
     useState<Campaign | null>(null);
-  const {
-    mutateAsync: deleteCampaign,
-    isPending: isDeleting,
-  } = useDeleteCampaignMutation();
+  const { mutateAsync: deleteCampaign, isPending: isDeleting } =
+    useDeleteCampaignMutation();
 
   const confirmDeletion = async () => {
     if (!campaignPendingDeletion) {
@@ -61,57 +59,61 @@ const CampaignList = ({
 
   return (
     <>
-    <ul className={styles.campaignList}>
-      {campaigns.map((campaign) => (
-        <li
-          key={campaign.id}
-          className={
-            selectedCampaignId === campaign.id
-              ? `${styles.campaignCard} ${styles.campaignCard_active}`
-              : styles.campaignCard
-          }
-        >
-          <div>
-            <p className="eyebrow">
-              {campaign.town} ({campaign.radius} km radius)
-            </p>
-            <h2>{campaign.name}</h2>
-            <p className={`muted ${styles.keywords}`}>
-              {campaign.keywords.map((keyword) => `#${keyword}`).join(" ")}
-            </p>
-          </div>
-          <dl>
+      <ul className={styles.campaignList}>
+        {campaigns.map((campaign) => (
+          <li
+            key={campaign.id}
+            className={
+              selectedCampaignId === campaign.id
+                ? `${styles.campaignCard} ${styles.campaignCard_active}`
+                : styles.campaignCard
+            }
+          >
             <div>
-              <dt>Bid</dt>
-              <dd>${campaign.bidAmount.toFixed(2)}</dd>
+              <p className="eyebrow">
+                {campaign.town} ({campaign.radius} km radius)
+              </p>
+              <h2>{campaign.name}</h2>
+              <p className={`muted ${styles.keywords}`}>
+                {campaign.keywords.map((keyword) => `#${keyword}`).join(" ")}
+              </p>
             </div>
-            <div>
-              <dt>Fund</dt>
-              <dd>${campaign.campaignFund.toFixed(2)}</dd>
+            <dl>
+              <div>
+                <dt>Bid</dt>
+                <dd>${campaign.bidAmount.toFixed(2)}</dd>
+              </div>
+              <div>
+                <dt>Fund</dt>
+                <dd>${campaign.campaignFund.toFixed(2)}</dd>
+              </div>
+              <div>
+                <dt>Status</dt>
+                <dd
+                  className={
+                    campaign.statusOn ? styles.statusOn : styles.statusOff
+                  }
+                >
+                  {campaign.statusOn ? "Active" : "Paused"}
+                </dd>
+              </div>
+            </dl>
+            <div className={styles.cardActions}>
+              <button type="button" onClick={() => onSelect(campaign.id)}>
+                Edit in form
+              </button>
+              <Link to={routes.edit(campaign.id)}>Open page</Link>
+              <button
+                type="button"
+                className={styles.deleteAction}
+                onClick={() => setCampaignPendingDeletion(campaign)}
+                disabled={isDeleting}
+              >
+                Delete
+              </button>
             </div>
-            <div>
-              <dt>Status</dt>
-              <dd className={campaign.statusOn ? styles.statusOn : styles.statusOff}>
-                {campaign.statusOn ? "Active" : "Paused"}
-              </dd>
-            </div>
-          </dl>
-          <div className={styles.cardActions}>
-            <button type="button" onClick={() => onSelect(campaign.id)}>
-              Edit in form
-            </button>
-            <Link to={routes.edit(campaign.id)}>Open page</Link>
-            <button
-              type="button"
-              className={styles.deleteAction}
-              onClick={() => setCampaignPendingDeletion(campaign)}
-              disabled={isDeleting}
-            >
-              Delete
-            </button>
-          </div>
-        </li>
-      ))}
+          </li>
+        ))}
       </ul>
       <DeleteModal
         isOpen={Boolean(campaignPendingDeletion)}

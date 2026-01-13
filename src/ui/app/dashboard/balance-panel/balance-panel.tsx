@@ -18,12 +18,14 @@ const BalancePanel = () => {
     error: balanceError,
   } = useAccountBalanceQuery();
 
-  const {
-    data: campaigns,
-  } = useCampaignsQuery();
+  const { data: campaigns } = useCampaignsQuery();
 
   const maxFunds = Array.isArray(campaigns)
-    ? campaigns.reduce((sum, c) => sum + (typeof c.campaignFund === "number" ? c.campaignFund : 0), 0)
+    ? campaigns.reduce(
+        (sum, c) =>
+          sum + (typeof c.campaignFund === "number" ? c.campaignFund : 0),
+        0,
+      )
     : 0;
 
   return (

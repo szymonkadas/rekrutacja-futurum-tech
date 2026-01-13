@@ -32,10 +32,17 @@ const EditCampaignPage = ({
   const campaignId = campaignIdProp ?? params.campaignId;
   const location = useLocation();
   const locationState = (location.state as EditPageState) ?? null;
-  const { data: campaign, isPending, isError, error } = useCampaignQuery(campaignId);
+  const {
+    data: campaign,
+    isPending,
+    isError,
+    error,
+  } = useCampaignQuery(campaignId);
   const resolvedDraft =
     initialDraft ??
-    (locationState?.campaignId === campaignId ? locationState?.draft : undefined);
+    (locationState?.campaignId === campaignId
+      ? locationState?.draft
+      : undefined);
 
   const handleDraftChange = (draft: CampaignFormData) => {
     if (campaign?.id) {

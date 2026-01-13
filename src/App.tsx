@@ -17,7 +17,7 @@ const App = () => {
   return (
     <HashRouter>
       <Routes>
-        <Route path={RoutePaths.HOME} element={<Dashboard/>} />
+        <Route path={RoutePaths.HOME} element={<Dashboard />} />
         <Route
           path={RoutePaths.CREATE}
           element={
@@ -34,14 +34,15 @@ const App = () => {
             </StandaloneLayout>
           }
         />
-        <Route path={RoutePaths.EDIT_WITH_PARAM} element={<StandaloneEditRoute />} />
+        <Route
+          path={RoutePaths.EDIT_WITH_PARAM}
+          element={<StandaloneEditRoute />}
+        />
         <Route path="*" element={<Navigate to={routes.home()} replace />} />
       </Routes>
     </HashRouter>
   );
 };
-
-
 
 const StandaloneEditRoute = () => {
   const { campaignId } = useParams<{ campaignId?: string }>();

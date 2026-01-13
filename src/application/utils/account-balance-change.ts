@@ -4,8 +4,7 @@ import { ACCOUNT_BALANCE_QUERY_KEY } from "/src/application/hooks/account-balanc
 import ensureQuerySuccess from "/src/application/utils/ensure-query-success";
 import formatCurrency from "/src/application/utils/format-currency";
 
-const BALANCE_FALLBACK_MESSAGE =
-  "Unable to fetch the latest Emerald balance.";
+const BALANCE_FALLBACK_MESSAGE = "Unable to fetch the latest Emerald balance.";
 
 export const snapshotAccountBalance = async (
   queryClient: QueryClient,

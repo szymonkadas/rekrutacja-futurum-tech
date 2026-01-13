@@ -19,13 +19,13 @@
   gap: var(--space-7);
   align-items: flex-start;
 }
-.campaignPage__header div h2, .campaignPage__header div p {
+.campaignPage__header div h2,
+.campaignPage__header div p {
   margin-bottom: 0;
 }
-.campaignPage__header div p{
+.campaignPage__header div p {
   margin-top: 0;
 }
-
 
 .campaignPage__headerMeta {
   margin-left: auto;
@@ -43,7 +43,9 @@
   border-radius: var(--radius-sm);
   font-weight: 600;
   cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .headerActionButton:disabled {
@@ -80,7 +82,7 @@
 }
 
 @media (max-width: 80rem) {
-  .campaignPage{
+  .campaignPage {
     max-width: 100%;
     margin-left: 0;
     margin-right: 0;

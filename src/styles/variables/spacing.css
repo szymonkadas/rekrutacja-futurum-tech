@@ -10,20 +10,20 @@
      BASE SPACING SCALE
      ═══════════════════════════════════════════════════════════════════════════ */
   --space-0: 0;
-  --space-1: 0.25rem;    /* 4px */
-  --space-2: 0.35rem;    /* ~5.6px - fine adjustments */
-  --space-3: 0.4rem;     /* ~6.4px */
-  --space-4: 0.5rem;     /* 8px */
-  --space-5: 0.75rem;    /* 12px */
-  --space-6: 0.85rem;    /* ~13.6px */
-  --space-7: 1rem;       /* 16px - base */
-  --space-8: 1.25rem;    /* 20px */
-  --space-9: 1.5rem;     /* 24px */
-  --space-10: 1.75rem;   /* 28px */
-  --space-11: 2rem;      /* 32px */
-  --space-12: 2.5rem;    /* 40px */
-  --space-13: 3rem;      /* 48px */
-  --space-14: 3.5rem;    /* 56px */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.35rem; /* ~5.6px - fine adjustments */
+  --space-3: 0.4rem; /* ~6.4px */
+  --space-4: 0.5rem; /* 8px */
+  --space-5: 0.75rem; /* 12px */
+  --space-6: 0.85rem; /* ~13.6px */
+  --space-7: 1rem; /* 16px - base */
+  --space-8: 1.25rem; /* 20px */
+  --space-9: 1.5rem; /* 24px */
+  --space-10: 1.75rem; /* 28px */
+  --space-11: 2rem; /* 32px */
+  --space-12: 2.5rem; /* 40px */
+  --space-13: 3rem; /* 48px */
+  --space-14: 3.5rem; /* 56px */
 
   /* ═══════════════════════════════════════════════════════════════════════════
      PADDING PRESETS

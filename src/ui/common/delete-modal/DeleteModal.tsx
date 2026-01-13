@@ -23,7 +23,7 @@ const DeleteModal = ({
   cancelLabel = "Cancel",
   onConfirm,
   onCancel,
-  isConfirming = false
+  isConfirming = false,
 }: DeleteModalProps) => {
   const cancelButtonRef = useRef<HTMLButtonElement | null>(null);
 
