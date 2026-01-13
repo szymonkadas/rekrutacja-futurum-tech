@@ -3,6 +3,7 @@ import type { Campaign } from "/src/domain/entities/Campaign";
 import CampaignForm from "../common/campaign-form/campaign-form";
 import type {
   CampaignFormData,
+  CampaignFormInput,
   ValidationErrors,
 } from "/src/application/schemas/campaignSchema";
 import { mapValidationErrors } from "/src/application/utils/schema-errors";
@@ -12,7 +13,7 @@ import { useUpdateCampaignMutation } from "/src/application/hooks/campaigns/useU
 type EditCampaignFormProps = {
   campaign: Campaign;
   initialValues?: CampaignFormData;
-  onDraftChange?: (values: CampaignFormData) => void;
+  onDraftChange?: (values: CampaignFormInput) => void;
 };
 
 const toFormData = (campaign: Campaign): CampaignFormData => ({

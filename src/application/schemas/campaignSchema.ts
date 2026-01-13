@@ -64,5 +64,8 @@ export const campaignSchema = campaignBaseSchema.refine(
   },
 );
 
+/** Output type - after parsing and validation (numbers are actual numbers) */
 export type CampaignFormData = z.infer<typeof campaignSchema>;
+/** Input type - before parsing (numbers can be strings from form inputs) */
+export type CampaignFormInput = z.input<typeof campaignSchema>;
 export type ValidationErrors = Record<string, string | undefined>;

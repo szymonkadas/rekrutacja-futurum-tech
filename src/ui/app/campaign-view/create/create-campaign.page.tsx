@@ -2,14 +2,14 @@ import { useLocation } from "react-router-dom";
 import CampaignViewPageTemplate from "../common/campaign-page/campaign-page-template";
 import { buildCampaignFormTabs } from "/src/ui/app/campaign-view/common/utils/build-campaign-form-tabs";
 import CreateCampaignForm from "/src/ui/app/campaign-view/create/create-campaign-form";
-import type { CampaignFormData } from "/src/application/schemas/campaignSchema";
+import type { CampaignFormData, CampaignFormInput } from "/src/application/schemas/campaignSchema";
 
 type CreateCampaignPageProps = {
   showTabs?: boolean;
   showStandaloneLink?: boolean;
   onOpenStandalone?: () => void;
   initialDraft?: CampaignFormData;
-  onDraftChange?: (draft: CampaignFormData) => void;
+  onDraftChange?: (draft: CampaignFormInput) => void;
 };
 
 type CreatePageState = {

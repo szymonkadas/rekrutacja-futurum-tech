@@ -155,3 +155,7 @@ All component modules import these variables via `src/styles/variables/index.css
 - [ ] i18n support.
 
 ---
+
+### Notes
+
+Didn't use husky or other ci/cd scripts -> time constraints.

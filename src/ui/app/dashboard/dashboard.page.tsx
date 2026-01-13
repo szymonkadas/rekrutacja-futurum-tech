@@ -1,7 +1,7 @@
 import { startTransition, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCampaignsQuery } from "/src/application/hooks/campaigns/useCampaigns";
-import type { CampaignFormData } from "/src/application/schemas/campaignSchema";
+import type { CampaignFormInput } from "/src/application/schemas/campaignSchema";
 import { routes } from "/src/config/routes";
 import BalancePanel from "./balance-panel/balance-panel";
 import CampaignList from "../campaign-list/campaign-list";
@@ -27,10 +27,10 @@ const Dashboard = () => {
   );
   const [mode, setMode] = useState<"create" | "edit">("create");
   const [createDraft, setCreateDraft] = useState<
-    CampaignFormData | undefined
+    CampaignFormInput | undefined
   >();
   const [editDrafts, setEditDrafts] = useState<
-    Record<string, CampaignFormData>
+    Record<string, CampaignFormInput>
   >({});
 
   const handleSelectCampaign = (id: string) => {
@@ -56,12 +56,12 @@ const Dashboard = () => {
     });
   };
 
-  const handleCreateDraftChange = (draft: CampaignFormData) => {
+  const handleCreateDraftChange = (draft: CampaignFormInput) => {
     setCreateDraft(draft);
   };
 
   const handleEditDraftChange = (
-    draft: CampaignFormData,
+    draft: CampaignFormInput,
     campaignId: string,
   ) => {
     setEditDrafts((prev) => ({ ...prev, [campaignId]: draft }));

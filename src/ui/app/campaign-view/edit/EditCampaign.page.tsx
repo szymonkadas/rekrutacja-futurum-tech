@@ -4,7 +4,7 @@ import EditCampaignForm from "/src/ui/app/campaign-view/edit/CreateCampaignForm"
 import { buildCampaignFormTabs } from "/src/ui/app/campaign-view/common/utils/build-campaign-form-tabs";
 import { useCampaignQuery } from "/src/application/hooks/campaigns/useCampaign";
 import { useLocation, useParams } from "react-router-dom";
-import type { CampaignFormData } from "/src/application/schemas/campaignSchema";
+import type { CampaignFormData, CampaignFormInput } from "/src/application/schemas/campaignSchema";
 
 type EditCampaignPageProps = {
   campaignId?: string;
@@ -12,7 +12,7 @@ type EditCampaignPageProps = {
   showStandaloneLink?: boolean;
   onOpenStandalone?: () => void;
   initialDraft?: CampaignFormData;
-  onDraftChange?: (draft: CampaignFormData, campaignId: string) => void;
+  onDraftChange?: (draft: CampaignFormInput, campaignId: string) => void;
 };
 
 type EditPageState = {
@@ -44,7 +44,7 @@ const EditCampaignPage = ({
       ? locationState?.draft
       : undefined);
 
-  const handleDraftChange = (draft: CampaignFormData) => {
+  const handleDraftChange = (draft: CampaignFormInput) => {
     if (campaign?.id) {
       onDraftChange?.(draft, campaign.id);
     }

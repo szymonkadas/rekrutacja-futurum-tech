@@ -8,6 +8,7 @@ import {
 import {
   campaignSchema,
   type CampaignFormData,
+  type CampaignFormInput,
   type ValidationErrors,
 } from "/src/application/schemas/campaignSchema";
 import { mapValidationErrors } from "/src/application/utils/schema-errors";
@@ -38,7 +39,7 @@ type CampaignFormProps = {
   serverValidationErrors?: ValidationErrors;
   successMessage?: string | null;
   onSubmit: (values: CampaignFormData) => Promise<void>;
-  onDraftChange?: (values: CampaignFormState) => void;
+  onDraftChange?: (values: CampaignFormInput) => void;
 };
 
 type CampaignFormState = {

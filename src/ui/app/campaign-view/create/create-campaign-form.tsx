@@ -4,6 +4,7 @@ import { MIN_BID_AMOUNT } from "/src/domain/constants/MIN_BID_AMOUNT";
 import CampaignForm from "../common/campaign-form/campaign-form";
 import type {
   CampaignFormData,
+  CampaignFormInput,
   ValidationErrors,
 } from "/src/application/schemas/campaignSchema";
 import { mapValidationErrors } from "/src/application/utils/schema-errors";
@@ -22,7 +23,7 @@ const INITIAL_VALUES: CampaignFormData = {
 
 type CreateCampaignFormProps = {
   initialValues?: CampaignFormData;
-  onDraftChange?: (values: CampaignFormData) => void;
+  onDraftChange?: (values: CampaignFormInput) => void;
 };
 
 const CreateCampaignForm = ({
