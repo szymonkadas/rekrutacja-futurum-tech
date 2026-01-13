@@ -146,10 +146,12 @@ All component modules import these variables via `src/styles/variables/index.css
 
 ## Future Enhancements
 
-- [ ] Layer optimistic updates and toast notifications on top of the existing React Query mutations.
+- [x] Toast notifications on top of the existing React Query mutations.
 - [ ] Testing.
 - [ ] Introduce automated accessibility checks (e.g., `@axe-core/react`).
+> Although it looks like it's more sort of an internal tool so accessibility wouldn't be there so important i guess?
 - [ ] Expand `StatusCode` to cover more nuanced failure cases (422, 409) if domain requires it.
+- [ ] Layer optimistic updates (kinda redundant tbh when everything's on client side and each operation is quite fast even after we take into consideration our db simulation of latency)
 - [ ] i18n support.
 
 ---
