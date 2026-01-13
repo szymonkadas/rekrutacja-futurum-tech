@@ -120,7 +120,6 @@ const CampaignList = ({
         onCancel={() => setCampaignPendingDeletion(null)}
         onConfirm={confirmDeletion}
         isConfirming={isDeleting}
-        disableConfirm={isDeleting}
       />
     </>
   );
