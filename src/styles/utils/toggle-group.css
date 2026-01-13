@@ -1,0 +1,60 @@
+/**
+ * Toggle Group Utilities
+ * 
+ * Shared styles for toggle/tab navigation components like:
+ * - tabNav (campaignPageTemplate)
+ * - modeSwitch (dashboard)
+ * - StatusToggle
+ */
+
+/* Container for toggle group */
+.toggleGroupContainer {
+  display: inline-flex;
+  gap: var(--space-4);
+  background: var(--color-bg-overlay);
+  border-radius: var(--radius-full);
+  padding: var(--space-1);
+}
+
+/* Individual toggle option/button/item */
+.toggleGroupOption {
+  padding: 0.35rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-subtle);
+  transition:
+    background 150ms ease,
+    color 150ms ease;
+}
+
+/* Active state for toggle option */
+.toggleGroupOption_active {
+  background: var(--color-primary-gradient);
+  color: var(--color-text-dark);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Tablet: reduce border-radius */
+@media (max-width: 48rem) {
+  .toggleGroupContainer {
+    border-radius: var(--radius-md);
+  }
+
+  .toggleGroupOption {
+    border-radius: var(--radius-md);
+  }
+}
+
+/* Mobile: further reduce border-radius and adjust sizing */
+@media (max-width: 31rem) {
+  .toggleGroupContainer {
+    border-radius: var(--radius-sm);
+  }
+
+  .toggleGroupOption {
+    border-radius: var(--radius-sm);
+    padding: 0.25rem 1rem;
+    font-size: var(--font-size-sm);
+  }
+}
