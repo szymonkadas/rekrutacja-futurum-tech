@@ -18,6 +18,7 @@ const toNumber = (val: unknown): number => {
 export const campaignBaseSchema = z.object({
   name: z
     .string({ message: "Campaign name is required" })
+    .trim()
     .min(1, "Campaign name is required")
     .max(128, "Campaign name is too long"),
 
@@ -25,6 +26,7 @@ export const campaignBaseSchema = z.object({
     .array(
       z
         .string({ message: keywordRequiredMessage })
+        .trim()
         .min(1, "Keyword is required to be at least 1 character")
         .max(128, "Keyword is too long (max 128 characters)"),
     )
@@ -46,7 +48,7 @@ export const campaignBaseSchema = z.object({
 
   statusOn: z.boolean({ message: "Status is required" }),
 
-  town: z.string({ message: "Town is required" }).min(1, "Town is required"),
+  town: z.string({ message: "Town is required" }).trim().min(1, "Town is required"),
 
   radius: z.preprocess(
     toNumber,
