@@ -3,25 +3,25 @@
 
 Zadanie polega na stworzeniu aplikacji obsługującej pełen cykl CRUD na podstawie danych przedstawionych w załączniku. Aplikacja powinna umożliwiać:
 
-- [ ] dodawanie nowych obiektów,
-- [ ] edycję istniejących,
-- [ ] usuwanie obiektów,
-- [ ] wyświetlanie listy obiektów,
+- [x] dodawanie nowych obiektów,
+- [x] edycję istniejących,
+- [x] usuwanie obiektów,
+- [x] wyświetlanie listy obiektów,
 
 > wszystko zgodnie z opisanymi historyjkami użytkownika.
 
 Projekt powinien mieć:
 
-- [ ] widoki HTML obsługujące CRUD z użyciem frameworka React;
-  - [ ] widok dodawnia
-  - [ ] widok edycji (widok poniekąd powinien być współdzielony z widokiem dodawania)
-  - [ ] wyświetlanie listy obiektów (powinien mieć możliwość usuwania z modalem potwierdzającym)
-  - [ ] usuwanie obiektów (modal potwierdzający użyty w widoku edycji, i wyświetlaniu listy obiektów dostępny przez przycisk)
+- [x] widoki HTML obsługujące CRUD z użyciem frameworka React;
+  - [x] widok dodawnia
+  - [x] widok edycji (widok poniekąd powinien być współdzielony z widokiem dodawania)
+  - [x] wyświetlanie listy obiektów (powinien mieć możliwość usuwania z modalem potwierdzającym)
+  - [x] usuwanie obiektów (modal potwierdzający użyty w widoku edycji, i wyświetlaniu listy obiektów dostępny przez przycisk)
 
-- [ ] zakodowanie designu w myśl responsive design;
-- [ ] użycie CSS w myśl rwd (preprocesory CSS jak najbardziej dozwolone) żeby osiągnąć ładny i czytelny wygląd - można skorzystać z tailwinda;
+- [x] zakodowanie designu w myśl responsive design;
+- [x] użycie CSS w myśl rwd (preprocesory CSS jak najbardziej dozwolone) żeby osiągnąć ładny i czytelny wygląd - można skorzystać z tailwinda;
 > Dobrym kierunkiem tutaj będzie przyjęcie standardowych breakpointów: xs:370px sm: 500px, md: 768px, lg: 1024px, xl: 1280px
-- [ ] backend w postaci mocków (nie będzie to przedmiotem oceny)
+- [x] backend w postaci mocków (nie będzie to przedmiotem oceny)
 > Idealne tutaj będzie wykorzystanie onion-architecture -> folder domain w którym zdefiniowalibyśmy w typescript entities, w folderze application utworzylibyśmy proxy które dałoby dostęp do "bazy danych" w postaci pliku db.ts (w środku zwykły obiekt z wszystkimi potrzebnymi danymi -> nie będziemy się bawić w próbę utworzenia relacyjnych baz danych -> rzucamy redundatne dane jak w nosql'owej bazie dokumentowej do tego obiektu)
 
 (wersja live aplikacji mile widziana - np. github pages albo azure static pages)
