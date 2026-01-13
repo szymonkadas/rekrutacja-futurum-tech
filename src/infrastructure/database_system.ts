@@ -95,7 +95,10 @@ export const db = {
     return new Promise((resolve) => {
       const index = campaigns.findIndex((c) => c.id === id);
       if (index !== -1) {
-        campaigns.splice(index, 1);
+        const [removedCampaign] = campaigns.splice(index, 1);
+        if (removedCampaign) {
+          accountStore.balance += removedCampaign.campaignFund;
+        }
       }
       setTimeout(() => resolve(), 300);
     });
