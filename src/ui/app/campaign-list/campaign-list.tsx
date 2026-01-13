@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import type { Campaign } from "/src/domain/entities/Campaign";
+import DeleteModal from "/src/ui/common/delete-modal/DeleteModal";
+import { useDeleteCampaignMutation } from "/src/application/hooks/campaigns/useDeleteCampaign.mutation";
 import styles from "./campaignList.module.css";
 
 type CampaignListProps = {
@@ -19,6 +22,26 @@ const CampaignList = ({
   selectedCampaignId,
   onSelect,
 }: CampaignListProps) => {
+  const [campaignPendingDeletion, setCampaignPendingDeletion] =
+    useState<Campaign | null>(null);
+  const {
+    mutateAsync: deleteCampaign,
+    isPending: isDeleting,
+  } = useDeleteCampaignMutation();
+
+  const confirmDeletion = async () => {
+    if (!campaignPendingDeletion) {
+      return;
+    }
+
+    try {
+      await deleteCampaign(campaignPendingDeletion.id);
+      setCampaignPendingDeletion(null);
+    } catch (mutationError) {
+      console.error("Failed to delete campaign", mutationError);
+    }
+  };
+
   if (isPending) {
     return <p className="muted">Loading campaigns…</p>;
   }
@@ -36,6 +59,7 @@ const CampaignList = ({
   }
 
   return (
+    <>
     <ul className={styles.campaignList}>
       {campaigns.map((campaign) => (
         <li
@@ -76,10 +100,29 @@ const CampaignList = ({
               Edit in form
             </button>
             <Link to={`/edit/${campaign.id}`}>Open page</Link>
+            <button
+              type="button"
+              className={styles.deleteAction}
+              onClick={() => setCampaignPendingDeletion(campaign)}
+              disabled={isDeleting}
+            >
+              Delete
+            </button>
           </div>
         </li>
       ))}
-    </ul>
+      </ul>
+      <DeleteModal
+        isOpen={Boolean(campaignPendingDeletion)}
+        title="Delete campaign"
+        description={`This will permanently remove "${campaignPendingDeletion?.name ?? "this campaign"}".`}
+        confirmLabel="Delete campaign"
+        onCancel={() => setCampaignPendingDeletion(null)}
+        onConfirm={confirmDeletion}
+        isConfirming={isDeleting}
+        disableConfirm={isDeleting}
+      />
+    </>
   );
 };
 

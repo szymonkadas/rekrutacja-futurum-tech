@@ -79,6 +79,15 @@
   transition: border-color 160ms ease;
 }
 
+.deleteAction {
+  color: var(--color-error);
+  border-color: var(--color-error-border, var(--color-error));
+}
+
+.deleteAction:hover {
+  border-color: var(--color-error);
+}
+
 .cardActions a:hover {
   border-color: var(--color-border-active);
 }
@@ -119,6 +128,10 @@
   .cardActions a,
   .cardActions button {
     border-radius: var(--radius-md);
+  }
+
+  .deleteAction {
+    color: var(--color-error);
   }
 }
 
@@ -166,5 +179,9 @@
     border-radius: var(--radius-sm);
     padding: 0.25rem 0.75rem;
     font-size: var(--font-size-sm);
+  }
+
+  .deleteAction {
+    color: var(--color-error);
   }
 }
