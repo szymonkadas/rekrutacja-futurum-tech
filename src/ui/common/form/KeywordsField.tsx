@@ -237,7 +237,11 @@ const KeywordMultiSelect = ({
               <button
                 key={suggestion}
                 type="button"
-                onClick={() => handleAdd(suggestion)}
+                onClick={(event) => {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  handleAdd(suggestion);
+                }}
                 disabled={disabled}
                 className={styles.suggestionButton}
               >
