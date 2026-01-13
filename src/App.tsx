@@ -8,9 +8,9 @@ import {
   useParams,
 } from "react-router-dom";
 import "/src/App.css";
-// import CreateCampaignPage from "/src/ui/app/campaign-view/create/create-campaign.page";
-// import EditCampaignPage from "/src/ui/app/campaign-view/edit/EditCampaign.page";
 import Dashboard from "./ui/app/dashboard/dashboard.page";
+import EditCampaignPage from "./ui/app/campaign-view/edit/EditCampaign.page";
+import CreateCampaignPage from "./ui/app/campaign-view/create/create-campaign.page";
 
 const App = () => {
   return (
@@ -21,8 +21,7 @@ const App = () => {
           path="/create"
           element={
             <StandaloneLayout>
-              {/* <CreateCampaignPage /> */}
-              <></>
+              <CreateCampaignPage />
             </StandaloneLayout>
           }
         />
@@ -30,12 +29,11 @@ const App = () => {
           path="/edit"
           element={
             <StandaloneLayout>
-              {/* <EditCampaignPage /> */}
-              <></>
+              <EditCampaignPage />
             </StandaloneLayout>
           }
         />
-        {/* <Route path="/edit/:campaignId" element={<StandaloneEditRoute />} /> */}
+        <Route path="/edit/:campaignId" element={<StandaloneEditRoute />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </HashRouter>
@@ -48,7 +46,7 @@ const StandaloneEditRoute = () => {
   const { campaignId } = useParams<{ campaignId?: string }>();
   return (
     <StandaloneLayout>
-      {/* <EditCampaignPage campaignId={campaignId} /> */}
+      <EditCampaignPage campaignId={campaignId} />
     </StandaloneLayout>
   );
 };

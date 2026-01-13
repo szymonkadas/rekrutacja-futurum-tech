@@ -3,8 +3,8 @@ import { useCampaignsQuery } from "/src/application/hooks/campaigns/useCampaigns
 import { Link } from "react-router-dom";
 import BalancePanel from "./balance-panel/balance-panel";
 import CampaignList from "../campaign-list/campaign-list";
-// import CreateCampaignPage from "../campaign-view/create/create-campaign.page";
-// import EditCampaignPage from "../campaign-view/edit/EditCampaign.page";
+import CreateCampaignPage from "../campaign-view/create/create-campaign.page";
+import EditCampaignPage from "../campaign-view/edit/EditCampaign.page";
 import styles from "./dashboard.module.css";
 
 /**
@@ -105,14 +105,14 @@ const Dashboard = () => {
       </section>
 
       <div className={styles.pageGrid}>
-        {/* {mode === "create" ? (
+        {mode === "create" ? (
           <CreateCampaignPage showTabs={false} />
         ) : (
           <EditCampaignPage
             campaignId={selectedCampaignId ?? undefined}
             showTabs={false}
           />
-        )} */}
+        )}
       </div>
     </main>
   );
